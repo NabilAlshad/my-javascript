@@ -1,17 +1,20 @@
 //promise
-
-const hasMeeting = false;
+var meet = true;
 const meeting = new Promise((resolve, reject) => {
-  if (!hasMeeting) {
-    const meet = {
-      date: "tomorrow",
-      place: "google meet",
-    };
-    resolve(meet);
-  } else {
-    reject(new Error("already scheduled"));
+  if (!meet) {
+    meetingDetails = {
+      date: "20february",
+      location: "google meet"
+    }
+    resolve(meetingDetails);
+
   }
-});
+  else {
+    reject(new Error("there is no meeting with"))
+  }
+})
+  .then((result) => console.log(result))
+  .catch((error) => console.log(error.message));
 
 const addCalender = (meet) => {
   const calender = `${meet.date} has been ${meet.place}`;
